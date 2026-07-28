@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taichi Koike — Main Group Element Chemistry</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:      #f7f5f0;
@@ -18,8 +18,8 @@
   --accent:  #0a6e5c;
   --accent2: #4a3a98;
   --gold:    #7a5f1a;
-  --serif:   'Cormorant Garamond', Georgia, serif;
-  --sans:    'Corbel', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  --serif:   'Corbel', 'Meiryo', 'メイリオ', 'Gill Sans MT', sans-serif;
+  --sans:    'Corbel', 'Meiryo', 'メイリオ', 'Gill Sans MT', sans-serif;
   --mono:    'DM Mono', monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -154,69 +154,40 @@ h2 em{font-style:italic;color:var(--accent)}
   opacity:0;animation:fadeIn 1s 1.3s forwards;
 }
 .scroll-bar{width:1px;height:28px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse 2s infinite}
-
-/* ── Science feature ── */
-.science-feature{
-  background:var(--surf);
-  border:1px solid rgba(10,110,92,.25);
-  border-left:4px solid var(--accent);
-  padding:2.2rem 2.5rem;margin-bottom:3rem;
-  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
-  box-shadow:0 2px 20px rgba(10,110,92,.07);
+.hero-inner{display:grid;grid-template-columns:1fr;gap:4rem;align-items:center;width:100%}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
 }
-.sf-badge{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;
-  color:var(--accent);margin-bottom:.5rem;text-transform:uppercase;
-}
-.sf-title{
-  font-family:var(--serif);font-size:1.35rem;font-weight:400;
-  color:var(--text);line-height:1.35;margin-bottom:.45rem;
-}
-.sf-journal{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--gold)}
-.sf-journal span{font-style:normal;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-left:.5rem}
-.sf-desc{margin-top:.7rem;font-size:.83rem;color:var(--muted);line-height:1.75;max-width:520px}
-.sf-link{
-  display:inline-flex;align-items:center;gap:.4rem;
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;
-  padding:.7rem 1.2rem;border:1.5px solid var(--accent);
-  color:var(--accent);text-decoration:none;border-radius:3px;
-  transition:all .2s;white-space:nowrap;
-}
-.sf-link:hover{background:var(--accent);color:#fff}
-
-/* ── Research cards ── */
-.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.rc{
-  background:var(--surf);
-  border:1px solid var(--border);
-  padding:2rem 1.7rem;
-  transition:box-shadow .3s,transform .3s,border-color .3s;
-  cursor:default;position:relative;
-}
-.rc::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transform:scaleX(0);transform-origin:left;transition:transform .4s;
-}
-.rc:hover{box-shadow:0 8px 32px rgba(30,48,80,.1);transform:translateY(-3px);border-color:rgba(10,110,92,.2)}
-.rc:hover::before{transform:scaleX(1)}
-.rc-n{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--accent);margin-bottom:.8rem}
-.rc-t{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:.6rem;line-height:1.3}
-.rc-d{font-size:.83rem;color:var(--muted);line-height:1.78}
-.tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:1.1rem}
-.tag{font-family:var(--mono);font-size:.6rem;padding:.2rem .55rem;
-  border:1px solid var(--border);color:var(--muted);border-radius:2px;letter-spacing:.05em;
-  background:var(--bg2);}
 
 /* ── Publications ── */
 .pub{
-  display:grid;grid-template-columns:3.5rem 1fr auto;gap:0 1.8rem;
-  align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border2);
+  display:grid;grid-template-columns:190px 1fr;gap:0 1.8rem;
+  align-items:start;padding:1.6rem 0;border-bottom:1px solid var(--border2);
   transition:background .2s;
 }
 .pub:hover{background:rgba(10,110,92,.025);margin:0 -.8rem;padding-left:.8rem;padding-right:.8rem;border-radius:4px}
+.pub-toc{
+  display:block;position:relative;width:100%;aspect-ratio:3/2;
+  border:1px solid var(--border);border-radius:3px;
+  background:var(--surf);overflow:hidden;transition:border-color .2s;
+}
+.pub-toc:hover{border-color:rgba(10,110,92,.35)}
+.pub-toc img{width:100%;height:100%;object-fit:contain;display:block}
+/* Shown until the TOC graphic file is added; see images/README.md */
+.pub-toc-empty{border-style:dashed}
+.pub-toc-empty img{display:none}
+.pub-toc-empty::after{
+  content:'TOC';position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--muted);opacity:.5;
+}
 .pub-y{font-family:var(--mono);font-size:.7rem;font-weight:300;color:var(--accent);padding-top:.12rem}
-.pub-t{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--text);line-height:1.4;margin-bottom:.3rem}
+.pub-t{
+  display:block;font-family:var(--serif);font-size:1.05rem;font-weight:400;
+  color:var(--text);line-height:1.4;margin-bottom:.35rem;
+  text-decoration:none;transition:color .2s;
+}
+a.pub-t:hover{color:var(--accent)}
 .pub-au{font-size:.79rem;color:var(--muted);margin-bottom:.15rem}
 .pub-au strong{color:var(--text);font-weight:500;border-bottom:1.5px solid rgba(10,110,92,.3)}
 .pub-j{font-family:var(--mono);font-size:.68rem;color:var(--gold)}
@@ -227,8 +198,6 @@ h2 em{font-style:italic;color:var(--accent)}
   transition:all .2s;
 }
 .pub-doi:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-.feature-pub .pub-t{color:var(--accent);font-weight:400}
-.feature-pub{background:rgba(10,110,92,.025);margin:0 -.8rem;padding-left:.8rem;padding-right:.8rem;border-radius:4px}
 
 /* ── CV ── */
 .cv-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start}
@@ -261,7 +230,6 @@ h2 em{font-style:italic;color:var(--accent)}
 }
 .grant-period{font-family:var(--mono);font-size:.62rem;color:var(--accent);white-space:nowrap;padding-top:.1rem}
 .grant-title{font-size:.86rem;color:var(--text);font-weight:600;margin-bottom:.12rem}
-.grant-body{font-size:.76rem;color:var(--muted)}
 
 /* ── Contact ── */
 #contact{background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:0}
@@ -278,6 +246,8 @@ h2 em{font-style:italic;color:var(--accent)}
 }
 .clink:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 16px rgba(10,110,92,.1)}
 .clink svg{width:13px;height:13px;flex-shrink:0}
+.clink-static{cursor:default;color:var(--muted)}
+.clink-static:hover{border-color:var(--border);color:var(--muted);transform:none;box-shadow:0 1px 4px rgba(30,48,80,.05)}
 
 footer{
   position:relative;z-index:1;border-top:1px solid var(--border);
@@ -299,12 +269,9 @@ footer{
   .nav-links{gap:1rem}
   section{padding:5rem 1.2rem}
   #hero{padding-left:1.2rem;padding-right:1.2rem}
-  .rg{grid-template-columns:1fr}
   .cv-grid{grid-template-columns:1fr;gap:3rem}
-  .science-feature{grid-template-columns:1fr;padding:1.6rem}
-  .feat-grid{grid-template-columns:1fr !important}
-  .pub{grid-template-columns:3rem 1fr;gap:0 .9rem}
-  .pub-doi{display:none}
+  .pub{grid-template-columns:1fr;gap:.9rem}
+  .pub-toc{max-width:260px}
   footer{flex-direction:column;gap:.4rem;text-align:center}
 }
 </style>
@@ -314,36 +281,34 @@ footer{
 <nav>
   <a href="#hero" class="nav-brand"><span class="nav-dot"></span>Taichi Koike</a>
   <ul class="nav-links">
-    <li><a href="#research">Research</a></li>
-    <li><a href="#publications">Publications</a></li>
     <li><a href="#cv">CV</a></li>
+    <li><a href="#publications">Publications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-label">Assistant Professor · The University of Tokyo</div>
-  <h1 class="hero-name">
-    <span class="en">Taichi Koike</span>
-  </h1>
-  <div class="hero-sub">
-    <p class="hero-pos">Organic Functional Design Group · Dept. of Chemistry &amp; Biotechnology</p>
-    <p class="hero-inst">
-      Graduate School of Engineering, The University of Tokyo<br>
-      Toyota Riken Scholar &nbsp;·&nbsp; JST ACT-X Researcher &nbsp;·&nbsp; RIKEN Visiting Researcher
-    </p>
-    <div class="hero-badges">
-      <span class="badge badge-teal">Low-coordinate main group</span>
-      <span class="badge badge-teal">Carbon atom transfer</span>
-      <span class="badge badge-neu">Silicon chemistry</span>
-      <span class="badge badge-neu">Carbene / Silylene</span>
-      <span class="badge badge-neu">Unusual bonding</span>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Assistant Professor · The University of Tokyo</div>
+      <h1 class="hero-name">
+        <span class="en">Taichi Koike</span>
+      </h1>
+      <div class="hero-sub">
+        <p class="hero-pos">Organic Functional Design Group · Dept. of Chemistry &amp; Biotechnology</p>
+        <p class="hero-inst">
+          Graduate School of Engineering, The University of Tokyo
+        </p>
+        <div class="hero-badges">
+          <span class="badge badge-teal">Molecular organic / inorganic chemistry and functional materials</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#publications" class="btn btn-p">Publications</a>
+        <a href="#contact" class="btn btn-o">Contact / Links</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-cta">
-    <a href="#publications" class="btn btn-p">Publications</a>
-    <a href="#contact" class="btn btn-o">Contact / Links</a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-bar"></div>
@@ -353,221 +318,11 @@ footer{
 
 <div class="divider"></div>
 
-<!-- RESEARCH -->
-<section id="research">
-  <div class="sec-max">
-    <p class="label reveal">Research</p>
-    <h2 class="reveal">Molecules <em>at the frontier</em><br>of bonding and reactivity</h2>
-
-    <!-- Two corresponding-author featured papers -->
-    <div class="feat-grid reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem">
-      <div class="science-feature" style="margin-bottom:0">
-        <div>
-          <div class="sf-badge">★ Corresponding Author · ACIE 2026</div>
-          <div class="sf-title">Azetidinylideneketenimines as a Multimodal Synthetic Platform</div>
-          <div class="sf-journal">Angew. Chem. Int. Ed. <span>2026, accepted</span></div>
-          <p class="sf-desc">Coordination chemistry and cycloaddition-triggered transformations of isolable azetidinylideneketenimines — a versatile reactive platform built on strained four-membered rings.</p>
-        </div>
-        <a href="https://doi.org/10.1002/anie.1569919" target="_blank" rel="noopener" class="sf-link">DOI →</a>
-      </div>
-      <div class="science-feature" style="margin-bottom:0">
-        <div>
-          <div class="sf-badge">★ Corresponding Author · JACS 2023</div>
-          <div class="sf-title">Cyclobutenylidene: A Multifaceted Two-Coordinate Carbon Species</div>
-          <div class="sf-journal">J. Am. Chem. Soc. <span>2023, 145, 9264–9272</span></div>
-          <p class="sf-desc">The first isolable cyclobutenylidene, obtained via skeletal editing of a cyclopropenylidene — a carbene with rich reactivity arising from its strained bicyclic carbon framework.</p>
-        </div>
-        <a href="https://doi.org/10.1021/jacs.3c00961" target="_blank" rel="noopener" class="sf-link">DOI →</a>
-      </div>
-    </div>
-    <!-- Science 2024 -->
-    <div class="science-feature reveal" style="border-left-color:var(--accent2);border-color:rgba(74,58,152,.2);background:rgba(74,58,152,.03)">
-      <div>
-        <div class="sf-badge" style="color:var(--accent2)">Science 2024</div>
-        <div class="sf-title">Ph₃PCN₂: A stable reagent for carbon-atom transfer</div>
-        <div class="sf-journal">Science <span>2024, 385, 305–311</span></div>
-        <p class="sf-desc">Stable phosphorus ylide Ph₃PCN₂ enables stoichiometric and catalytic single-atom carbon transfer — a previously elusive transformation now unlocked as a practical synthetic tool.</p>
-      </div>
-      <a href="https://doi.org/10.1126/science.adp0260" target="_blank" rel="noopener" class="sf-link" style="border-color:var(--accent2);color:var(--accent2)">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Open in Science
-      </a>
-    </div>
-
-    <div class="rg">
-      <div class="rc reveal">
-        <div class="rc-n">01</div>
-        <div class="rc-t">Low-valent Main Group Element Chemistry</div>
-        <p class="rc-d">Synthesis and characterization of low-coordinate silicon and carbon species with unusual electronic structures — silylones, silylenes, carbenes, and beyond. Stabilized by sterically demanding ligands, these molecules challenge conventional bonding theories.</p>
-        <div class="tags">
-          <span class="tag">Silylene</span><span class="tag">Carbene</span><span class="tag">Silylone</span><span class="tag">Low-coordinate Si</span>
-        </div>
-      </div>
-      <div class="rc reveal d1">
-        <div class="rc-n">02</div>
-        <div class="rc-t">Carbon &amp; Main Group Atom Transfer Chemistry</div>
-        <p class="rc-d">Design of isolable, bench-stable reagents for single-atom transfer reactions. The carbon-atom transfer reagent Ph₃PCN₂ (Science 2024) opens new retrosynthetic disconnections impossible with classical methods.</p>
-        <div class="tags">
-          <span class="tag">Atom transfer</span><span class="tag">Ylide chemistry</span><span class="tag">Diazo compounds</span>
-        </div>
-      </div>
-      <div class="rc reveal d2">
-        <div class="rc-n">03</div>
-        <div class="rc-t">Exotic π-Electron Systems &amp; Unusual Bonding</div>
-        <p class="rc-d">Exploration of silicon-based π systems with non-classical bonding — 3-electron-2-center bonds, hypervalent/hypoelectronic species, and strained ring systems. Experiment guided by quantum chemical computation.</p>
-        <div class="tags">
-          <span class="tag">Si=B bond</span><span class="tag">Radical anion</span><span class="tag">π systems</span><span class="tag">DFT</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="sec-max">
-    <p class="label reveal">Publications</p>
-    <h2 class="reveal">Selected <em>papers</em></h2>
-
-    <div class="reveal">
-
-      <div class="pub">
-        <div class="pub-y">2026</div>
-        <div>
-          <div class="pub-t">Azetidinylideneketenimines as a Multimodal Synthetic Platform: Coordination Chemistry and Cycloaddition-Triggered Transformations</div>
-          <div class="pub-au"><strong>T. Koike*</strong>, K. Ito, S. Ishida, T. Iwamoto*</div>
-          <div class="pub-j">Angew. Chem. Int. Ed. 2026, accepted</div>
-        </div>
-        <a href="https://doi.org/10.1002/anie.1569919" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2025</div>
-        <div>
-          <div class="pub-t">Cyclic (Alkyl)(amino)silylene Aluminum(III) Iodide Complex and Its Nucleophile Dependent Reactivities</div>
-          <div class="pub-au"><strong>T. Koike</strong>, A. Sato, N. Sakurata, T. Iwamoto*</div>
-          <div class="pub-j">Organometallics 2025, 44, 1013–1017</div>
-        </div>
-        <a href="https://doi.org/10.1021/acs.organomet.5c00093" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2025</div>
-        <div>
-          <div class="pub-t">Ph₃PC – A Monosubstituted C(0) Atom in Its Triplet State</div>
-          <div class="pub-au">Y. Kutin, <strong>T. Koike</strong>, M. Drosou, A. Schnegg, D. Pantazis*, M. Kasanmascheff*, M. M. Hansmann*</div>
-          <div class="pub-j">Angew. Chem. Int. Ed. 2025, 64, e202424166</div>
-        </div>
-        <a href="https://doi.org/10.1002/anie.202424166" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2024</div>
-        <div>
-          <div class="pub-t">Ph₃PCN₂: A stable reagent for carbon-atom transfer</div>
-          <div class="pub-au"><strong>T. Koike</strong>, J.-K. Yu, M. M. Hansmann*</div>
-          <div class="pub-j">Science 2024, 385, 305–311</div>
-        </div>
-        <a href="https://doi.org/10.1126/science.adp0260" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2024</div>
-        <div>
-          <div class="pub-t">Isolable Si=B Analogue of a Vinyl Halide: A Building Block for Facile Access toward Silicon–Boron Multiple Bonded Species</div>
-          <div class="pub-au"><strong>T. Koike</strong>, N. Sakurata, S. Ishida, T. Iwamoto*</div>
-          <div class="pub-j">Angew. Chem. Int. Ed. 2024, 63, e202411283</div>
-        </div>
-        <a href="https://doi.org/10.1002/anie.202411283" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2024</div>
-        <div>
-          <div class="pub-t">Cycloadditions of Diazoalkenes with P₄ and <i>t</i>BuCP: Access to Diazaphospholes</div>
-          <div class="pub-au">S. Hauer, J. Reitz, <strong>T. Koike</strong>, M. M. Hansmann*, R. Wolf*</div>
-          <div class="pub-j">Angew. Chem. Int. Ed. 2024, e202410107</div>
-        </div>
-        <a href="https://doi.org/10.1002/anie.202410107" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2023</div>
-        <div>
-          <div class="pub-t">Cyclobutenylidene: A Multifaceted Two-Coordinate Carbon Species Obtained via Skeletal Editing of a Cyclopropenylidene</div>
-          <div class="pub-au"><strong>T. Koike*</strong>, T. Iwamoto*</div>
-          <div class="pub-j">J. Am. Chem. Soc. 2023, 145, 9264–9272</div>
-        </div>
-        <a href="https://doi.org/10.1021/jacs.3c00961" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2022</div>
-        <div>
-          <div class="pub-t">Synthesis, Structure and Electronic Properties of a Stable π-Type 3-Electron-2-Center-Bonded Species: A Silicon Analogue of a Bicyclo[1.1.0]butane Radical Anion</div>
-          <div class="pub-au"><strong>T. Koike</strong>, R. Osawa, S. Ishida, T. Iwamoto*</div>
-          <div class="pub-j">Angew. Chem. Int. Ed. 2022, 61, e202117584</div>
-        </div>
-        <a href="https://doi.org/10.1002/anie.202117584" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2022</div>
-        <div>
-          <div class="pub-t">Twisted Push–Pull Disilenes Obtained by Direct 1,2-Hydro/Chloroborylation of a Silylone</div>
-          <div class="pub-au"><strong>T. Koike</strong>, T. Iwamoto*</div>
-          <div class="pub-j">Chem. Commun. 2022, 58, 8061–8064</div>
-        </div>
-        <a href="https://doi.org/10.1039/D2CC02702E" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2021</div>
-        <div>
-          <div class="pub-t">Conformationally Switchable Silylone: Electron Redistribution Accompanied by Ligand Reorientation around a Monatomic Silicon</div>
-          <div class="pub-au"><strong>T. Koike</strong>, T. Nukazawa, T. Iwamoto*</div>
-          <div class="pub-j">J. Am. Chem. Soc. 2021, 143, 14332–14341</div>
-        </div>
-        <a href="https://doi.org/10.1021/jacs.1c06726" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2021</div>
-        <div>
-          <div class="pub-t">Intermolecular C–H Activation at the Allylic/Benzylic and Homoallylic/Homobenzylic Positions of Cyclic Hydrocarbons by a Stable Divalent Silicon Species</div>
-          <div class="pub-au"><strong>T. Koike</strong>, T. Kosai, T. Iwamoto*</div>
-          <div class="pub-j">Chem. Eur. J. 2021, 27, 724–734</div>
-        </div>
-        <a href="https://doi.org/10.1002/chem.202003749" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-      <div class="pub">
-        <div class="pub-y">2019</div>
-        <div>
-          <div class="pub-t">1,4-Dehydrogenation with a Two-Coordinate Cyclic (Alkyl)(amino)silylene</div>
-          <div class="pub-au"><strong>T. Koike</strong>, T. Kosai, T. Iwamoto*</div>
-          <div class="pub-j">Chem. Eur. J. 2019, 25, 9295–9302</div>
-        </div>
-        <a href="https://doi.org/10.1002/chem.201901826" target="_blank" rel="noopener" class="pub-doi">DOI →</a>
-      </div>
-
-    </div>
-
-    <div style="margin-top:2.5rem" class="reveal">
-      <a href="https://researchmap.jp/taichi.koike/published_papers" target="_blank" rel="noopener" class="btn btn-o">Full list on researchmap →</a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- CV -->
 <section id="cv">
   <div class="sec-max">
     <p class="label reveal">About &amp; CV</p>
-    <h2 class="reveal"><em>Career</em> &amp; biography</h2>
+    <h2 class="reveal"><em>CV</em></h2>
 
     <div class="cv-grid" style="grid-template-columns:190px 1fr 1fr">
       <div class="reveal" style="padding-top:.3rem">
@@ -575,17 +330,14 @@ footer{
       </div>
       <div class="reveal d1">
         <p class="about-p">
-          I am an <strong>Assistant Professor</strong> in the Department of Chemistry and Biotechnology, Graduate School of Engineering, The University of Tokyo (Masai Group). My research explores the chemistry of <strong>low-coordinate and low-valent main group elements</strong> — molecules that push the boundaries of classical bonding theory.
+          Taichi Koike holds an <strong>Assistant Professorship at the University of Tokyo</strong>, and concurrently serves as a <strong>Visiting Researcher at RIKEN</strong>. He completed his doctorate at Tohoku University in 2023 in the laboratory of Prof. Dr. Takeaki Iwamoto. As a JSPS Research Fellow for Young Scientists (2020–2023), his doctoral work centred on designing and preparing silicon-based π-electron species with unconventional bonding.
         </p>
         <p class="about-p">
-          I synthesize and characterize highly reactive, often unprecedented species such as free carbenes, silylones, and exotic π-bonded systems. A key focus is developing <strong>stable reagents for atom-transfer reactions</strong> — inspired by the discovery of Ph₃PCN₂ as a practical carbon-atom transfer agent (<i>Science</i> 2024).
+          He subsequently moved to Technische Universität Dortmund, joining the group of Prof. Dr. Max M. Hansmann on a fellowship from the <strong>Alexander von Humboldt Foundation</strong>. There he broadened his interests toward diazo-based reagents that enable <strong>precision editing of molecular skeletons</strong>.
         </p>
         <p class="about-p">
-          I also hold concurrent appointments as a <strong>Toyota Riken Scholar</strong> and a <strong>Visiting Researcher at RIKEN</strong>, and pursue JST ACT-X research on click-type reactions of low-coordinate elements as a route to functional π-electron materials.
+          He took up his present position in the Department of Chemistry and Biotechnology in April 2025. His current work investigates <strong>low-valent organic and main-group species</strong> at the point where molecular editing, electrochemistry, and materials science meet. His research has been recognised with the JSPS Ikushi Prize (2023) and the Inoue Research Award for Young Scientists (2024).
         </p>
-        <div style="margin-top:1.8rem">
-          <a href="#" class="btn btn-o">Download CV (PDF) ↓</a>
-        </div>
       </div>
 
       <div class="reveal d2">
@@ -636,12 +388,12 @@ footer{
         <div class="cv-section">
           <div class="cv-head">Selected Awards</div>
           <div class="cv-item">
-            <div><span class="star">★</span><span class="cv-item-main">JSPS Ikushi Prize（育志賞）</span></div>
-            <span class="cv-item-sub">2023</span>
+            <div><span class="cv-item-main">Inoue Research Award（井上研究奨励賞）</span></div>
+            <span class="cv-item-sub">2024</span>
           </div>
           <div class="cv-item">
-            <div><span class="star">★</span><span class="cv-item-main">Inoue Research Award（井上研究奨励賞）</span></div>
-            <span class="cv-item-sub">2024</span>
+            <div><span class="cv-item-main">JSPS Ikushi Prize（育志賞）</span></div>
+            <span class="cv-item-sub">2023</span>
           </div>
           <div class="cv-item">
             <div><span class="cv-item-main">Tohoku Univ. President's Award</span></div>
@@ -669,19 +421,23 @@ footer{
           <div class="grant-list">
             <div class="grant-item">
               <div class="grant-period">2026–28</div>
-              <div><div class="grant-title">Toyota Riken Scholar</div><div class="grant-body">B,N-π functionalization reagents for unexplored π-electron materials</div></div>
+              <div><div class="grant-title">JSPS Grant-in-Aid for Early-Career Scientists（若手研究）</div></div>
+            </div>
+            <div class="grant-item">
+              <div class="grant-period">2026–28</div>
+              <div><div class="grant-title">Toyota Riken Scholar</div></div>
             </div>
             <div class="grant-item">
               <div class="grant-period">2025–28</div>
-              <div><div class="grant-title">JST ACT-X</div><div class="grant-body">Click-type reactions of low-coordinate main group elements for functional chemistry (JPMJAX25D6)</div></div>
+              <div><div class="grant-title">JST ACT-X</div></div>
             </div>
             <div class="grant-item">
               <div class="grant-period">2025–27</div>
-              <div><div class="grant-title">JSPS Grant-in-Aid（スタート支援）</div><div class="grant-body">Low-coordinate main group element photoredox chemistry (25K23580)</div></div>
+              <div><div class="grant-title">JSPS Grant-in-Aid for Research Activity Start-up（研究活動スタート支援）</div></div>
             </div>
             <div class="grant-item">
               <div class="grant-period">2023–25</div>
-              <div><div class="grant-title">Alexander von Humboldt Fellowship</div><div class="grant-body">Carbon-atom transfer chemistry, TU Dortmund</div></div>
+              <div><div class="grant-title">Alexander von Humboldt Fellowship</div></div>
             </div>
           </div>
         </div>
@@ -690,6 +446,210 @@ footer{
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="sec-max">
+    <p class="label reveal">Publications</p>
+    <h2 class="reveal">All <em>papers</em></h2>
+
+    <div class="reveal">
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/anie.1569919" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-azetidinylideneketenimines-2026.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/anie.1569919" target="_blank" rel="noopener">Azetidinylideneketenimines as a Multimodal Synthetic Platform: Coordination Chemistry and Cycloaddition-Triggered Transformations</a>
+          <div class="pub-au"><strong>T. Koike*</strong>, K. Ito, S. Ishida, T. Iwamoto*</div>
+          <div class="pub-j">Angew. Chem. Int. Ed. 2026, 65, e1569919</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1021/acs.organomet.5c00093" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-caac-silylene-aluminium-2025.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1021/acs.organomet.5c00093" target="_blank" rel="noopener">Cyclic (Alkyl)(amino)silylene Aluminum(III) Iodide Complex and Its Nucleophile Dependent Reactivities</a>
+          <div class="pub-au"><strong>T. Koike</strong>, A. Sato, N. Sakurata, T. Iwamoto*</div>
+          <div class="pub-j">Organometallics 2025, 44, 1013–1017</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/anie.202424166" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-ph3pc-triplet-2025.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/anie.202424166" target="_blank" rel="noopener">Ph₃PC – A Monosubstituted C(0) Atom in Its Triplet State</a>
+          <div class="pub-au">Y. Kutin, <strong>T. Koike</strong>, M. Drosou, A. Schnegg, D. A. Pantazis*, M. Kasanmascheff*, M. M. Hansmann*</div>
+          <div class="pub-j">Angew. Chem. Int. Ed. 2025, 64, e202424166</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/anie.202411283" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-si-b-vinyl-halide-2024.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/anie.202411283" target="_blank" rel="noopener">Isolable Si=B Analogue of a Vinyl Halide: A Building Block for Facile Access toward Silicon–Boron Multiple Bonded Species</a>
+          <div class="pub-au"><strong>T. Koike</strong>, N. Sakurata, S. Ishida, T. Iwamoto*</div>
+          <div class="pub-j">Angew. Chem. Int. Ed. 2024, 63, e202411283</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1126/science.adp0260" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-ph3pcn2-carbon-atom-transfer-2024.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1126/science.adp0260" target="_blank" rel="noopener">Ph₃PCN₂: A Stable Reagent for Carbon-Atom Transfer</a>
+          <div class="pub-au"><strong>T. Koike</strong>, J.-K. Yu, M. M. Hansmann*</div>
+          <div class="pub-j">Science 2024, 385, 305–311</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/anie.202410107" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-diazaphospholes-2024.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/anie.202410107" target="_blank" rel="noopener">Cycloadditions of Diazoalkenes with P₄ and <i>t</i>BuCP: Access to Diazaphospholes</a>
+          <div class="pub-au">S. Hauer, J. Reitz, <strong>T. Koike</strong>, M. M. Hansmann*, R. Wolf*</div>
+          <div class="pub-j">Angew. Chem. Int. Ed. 2024, 63, e202410107</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1021/jacs.3c00961" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-cyclobutenylidene-2023.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1021/jacs.3c00961" target="_blank" rel="noopener">Cyclobutenylidene: A Multifaceted Two-Coordinate Carbon Species Obtained via Skeletal Editing of a Cyclopropenylidene</a>
+          <div class="pub-au"><strong>T. Koike*</strong>, T. Iwamoto*</div>
+          <div class="pub-j">J. Am. Chem. Soc. 2023, 145, 9264–9272</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1039/D2CC02702E" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-push-pull-disilenes-2022.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1039/D2CC02702E" target="_blank" rel="noopener">Twisted Push–Pull Disilenes Obtained by Direct 1,2-Hydro/Chloroborylation of a Silylone</a>
+          <div class="pub-au"><strong>T. Koike</strong>, T. Iwamoto*</div>
+          <div class="pub-j">Chem. Commun. 2022, 58, 8061–8064</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/anie.202117584" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-si-bicyclobutane-radical-anion-2022.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/anie.202117584" target="_blank" rel="noopener">Synthesis, Structure and Electronic Properties of a Stable π-Type 3-Electron-2-Center-Bonded Species: A Silicon Analogue of a Bicyclo[1.1.0]butane Radical Anion</a>
+          <div class="pub-au"><strong>T. Koike</strong>, R. Osawa, S. Ishida, T. Iwamoto*</div>
+          <div class="pub-j">Angew. Chem. Int. Ed. 2022, 61, e202117584</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1246/cl.210595" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-diaminotetrasilabicyclobutene-2022.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1246/cl.210595" target="_blank" rel="noopener">An Isolable 2,4-Diaminotetrasilabicyclo[1.1.0]but-1(3)-ene: Effects of Amino Groups at the Bridge Positions</a>
+          <div class="pub-au"><strong>T. Koike</strong>, S. Honda, T. Iwamoto*</div>
+          <div class="pub-j">Chem. Lett. 2022, 51, 77–80</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1021/jacs.1c06726" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-switchable-silylone-2021.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1021/jacs.1c06726" target="_blank" rel="noopener">Conformationally Switchable Silylone: Electron Redistribution Accompanied by Ligand Reorientation around a Monatomic Silicon</a>
+          <div class="pub-au"><strong>T. Koike</strong>, T. Nukazawa, T. Iwamoto*</div>
+          <div class="pub-j">J. Am. Chem. Soc. 2021, 143, 14332–14341</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/ejoc.202100296" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-pentacene-silylene-adducts-2021.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/ejoc.202100296" target="_blank" rel="noopener">Synthetic Access to Pentacene-Silylene Adducts via Dehydrogenative Silylation of a 5,14-Dihydropentacene with a Stable Silylene</a>
+          <div class="pub-au"><strong>T. Koike</strong>, T. Iwamoto*</div>
+          <div class="pub-j">Eur. J. Org. Chem. 2021, 2021, 2219–2222</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/chem.202003749" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-ch-activation-silylene-2021.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/chem.202003749" target="_blank" rel="noopener">Intermolecular C–H Activation at the Allylic/Benzylic and Homoallylic/Homobenzylic Positions of Cyclic Hydrocarbons by a Stable Divalent Silicon Species</a>
+          <div class="pub-au"><strong>T. Koike</strong>, T. Kosai, T. Iwamoto*</div>
+          <div class="pub-j">Chem. Eur. J. 2021, 27, 724–734</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1021/acs.organomet.9b00828" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-aminocyclotrisilene-2020.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1021/acs.organomet.9b00828" target="_blank" rel="noopener">[1+2] Cycloaddition of a Cyclic (Alkyl)(amino)silylene and a Disilyne Providing a 3-Aminocyclotrisilene</a>
+          <div class="pub-au"><strong>T. Koike</strong>, S. Honda, S. Ishida, T. Iwamoto*</div>
+          <div class="pub-j">Organometallics 2020, 39, 4149–4152</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1002/chem.201901826" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-dehydrogenation-silylene-2019.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1002/chem.201901826" target="_blank" rel="noopener">1,4-Dehydrogenation with a Two-Coordinate Cyclic (Alkyl)(amino)silylene</a>
+          <div class="pub-au"><strong>T. Koike</strong>, T. Kosai, T. Iwamoto*</div>
+          <div class="pub-j">Chem. Eur. J. 2019, 25, 9295–9302</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="reveal" style="margin-top:1.2rem;font-family:var(--mono);font-size:.62rem;color:var(--muted);letter-spacing:.08em">
+      * corresponding author
+    </p>
+
+    <div style="margin-top:2rem" class="reveal">
+      <a href="https://researchmap.jp/taichi.koike/published_papers" target="_blank" rel="noopener" class="btn btn-o">Full list on researchmap →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- CONTACT -->
 <section id="contact" style="padding:0">
@@ -700,10 +660,10 @@ footer{
       Open to collaborations, seminar invitations, and prospective students &amp; postdocs.
     </p>
     <div class="contact-links reveal">
-      <a href="mailto:tkoike@chembio.t.u-tokyo.ac.jp" class="clink">
+      <span class="clink clink-static">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
         tkoike@chembio.t.u-tokyo.ac.jp
-      </a>
+      </span>
       <a href="https://researchmap.jp/taichi.koike" target="_blank" rel="noopener" class="clink">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M2 20c0-4 4-7 10-7s10 3 10 7"/></svg>
         researchmap
