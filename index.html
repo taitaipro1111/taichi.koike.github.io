@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taichi Koike — Main Group Element Chemistry</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:      #f7f5f0;
@@ -18,14 +16,14 @@
   --accent:  #0a6e5c;
   --accent2: #4a3a98;
   --gold:    #7a5f1a;
-  --serif:   'Corbel', 'Meiryo', 'メイリオ', 'Gill Sans MT', sans-serif;
-  --sans:    'Corbel', 'Meiryo', 'メイリオ', 'Gill Sans MT', sans-serif;
-  --mono:    'DM Mono', monospace;
+  --serif:   'Times New Roman', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'MS Mincho', serif;
+  --sans:    'Times New Roman', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'MS Mincho', serif;
+  --mono:    'Times New Roman', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'MS Mincho', serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;line-height:1.65}
-:lang(ja), .jp-text{font-family:'Meiryo','Hiragino Sans','Hiragino Kaku Gothic ProN',sans-serif}
+:lang(ja), .jp-text{font-family:'Yu Mincho','YuMincho','Hiragino Mincho ProN','MS Mincho',serif}
 
 /* ── Subtle grid texture ── */
 body::before{
@@ -265,10 +263,15 @@ footer{
   .nav-links{gap:1rem}
   section{padding:5rem 1.2rem}
   #hero{padding-left:1.2rem;padding-right:1.2rem}
-  .cv-grid{grid-template-columns:1fr;gap:3rem}
+  .cv-grid{grid-template-columns:1fr !important;gap:3rem}
   .pub{grid-template-columns:1fr;gap:.9rem}
   .pub-toc{max-width:260px}
   footer{flex-direction:column;gap:.4rem;text-align:center}
+}
+@media(max-width:520px){
+  .nav-brand img{height:30px}
+  .nav-links{gap:.85rem}
+  .nav-links a{font-size:.63rem;letter-spacing:.07em}
 }
 </style>
 </head>
@@ -279,6 +282,7 @@ footer{
   <ul class="nav-links">
     <li><a href="#cv">CV</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#teaching">Teaching</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -344,6 +348,10 @@ footer{
             <span class="cv-item-sub">2025–</span>
           </div>
           <div class="cv-item">
+            <div><span class="cv-item-main">JST PRESTO Researcher</span><span class="cv-item-inst">Japan Science and Technology Agency</span></div>
+            <span class="cv-item-sub">2026–</span>
+          </div>
+          <div class="cv-item">
             <div><span class="cv-item-main">Toyota Riken Scholar</span><span class="cv-item-inst">Toyota Physical &amp; Chemical Research Institute</span></div>
             <span class="cv-item-sub">2025–</span>
           </div>
@@ -370,10 +378,6 @@ footer{
           <div class="cv-item">
             <div><span class="cv-item-main">Ph.D. Chemistry</span><span class="cv-item-inst">Tohoku University</span></div>
             <span class="cv-item-sub">2023</span>
-          </div>
-          <div class="cv-item">
-            <div><span class="cv-item-main">M.Sc. Chemistry</span><span class="cv-item-inst">Tohoku University</span></div>
-            <span class="cv-item-sub">2020</span>
           </div>
           <div class="cv-item">
             <div><span class="cv-item-main">B.Sc. Chemistry</span><span class="cv-item-inst">Tohoku University</span></div>
@@ -416,6 +420,10 @@ footer{
           <div class="cv-head">Research Funding</div>
           <div class="grant-list">
             <div class="grant-item">
+              <div class="grant-period">2026–30</div>
+              <div><div class="grant-title">JST PRESTO（さきがけ）</div></div>
+            </div>
+            <div class="grant-item">
               <div class="grant-period">2026–28</div>
               <div><div class="grant-title">JSPS Grant-in-Aid for Early-Career Scientists（若手研究）</div></div>
             </div>
@@ -452,6 +460,30 @@ footer{
     <h2 class="reveal">All <em>papers</em></h2>
 
     <div class="reveal">
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.26434/chemrxiv.15008875/v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-skeletal-editing-perspective-2026.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.26434/chemrxiv.15008875/v1" target="_blank" rel="noopener">Toward Property-Directed Catalytic Skeletal Editing of Functional Organic Materials</a>
+          <div class="pub-au"><strong>T. Koike*</strong>, S. Pradhan, K. Itami*</div>
+          <div class="pub-j">ACS Appl. Catal. 2026, accepted &nbsp;·&nbsp; preprint on ChemRxiv</div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-toc" href="https://doi.org/10.1021/acs.chemrev.6c00372" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="images/toc-pah-retrosynthesis-review-2026.png" alt="" loading="lazy"
+               onerror="this.parentNode.classList.add('pub-toc-empty')">
+        </a>
+        <div>
+          <a class="pub-t" href="https://doi.org/10.1021/acs.chemrev.6c00372" target="_blank" rel="noopener">Cycloaddition-Based Retrosynthetic Logic for the Diversification and Molecular Editing of Polycyclic Aromatic Hydrocarbons</a>
+          <div class="pub-au">S. Pradhan, R. Tanase, K. Amaike, <strong>T. Koike</strong>, H. Masai, K. Itami*</div>
+          <div class="pub-j">Chem. Rev. 2026, 126, 9525–9562</div>
+        </div>
+      </div>
 
       <div class="pub">
         <a class="pub-toc" href="https://doi.org/10.1002/anie.1569919" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
@@ -647,6 +679,42 @@ footer{
 
 <div class="divider"></div>
 
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="sec-max">
+    <p class="label reveal">Teaching</p>
+    <h2 class="reveal">Teaching <em>experience</em></h2>
+
+    <div class="cv-grid reveal" style="grid-template-columns:1fr 1fr;gap:3rem">
+      <div class="cv-section" style="margin-bottom:0">
+        <div class="cv-head">Undergraduate</div>
+        <div class="cv-item">
+          <div><span class="cv-item-main">Introduction to Chemistry &amp; Biotechnology</span><span class="cv-item-inst">化学生命工学概論 · The University of Tokyo</span></div>
+          <span class="cv-item-sub">2026–</span>
+        </div>
+        <div class="cv-item">
+          <div><span class="cv-item-main">First-Year Seminar in Science</span><span class="cv-item-inst">初年次ゼミナール理科 · The University of Tokyo</span></div>
+          <span class="cv-item-sub">2026–</span>
+        </div>
+      </div>
+
+      <div class="cv-section" style="margin-bottom:0">
+        <div class="cv-head">Exercises &amp; Laboratory</div>
+        <div class="cv-item">
+          <div><span class="cv-item-main">Exercises in Organic &amp; Polymer Chemistry</span><span class="cv-item-inst">有機・高分子演習 · The University of Tokyo</span></div>
+          <span class="cv-item-sub">2025–</span>
+        </div>
+        <div class="cv-item">
+          <div><span class="cv-item-main">Laboratory Work &amp; Exercises in Organic Chemistry</span><span class="cv-item-inst">有機化学実験及演習 · The University of Tokyo</span></div>
+          <span class="cv-item-sub">2025–</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- CONTACT -->
 <section id="contact" style="padding:0">
   <div class="sec-max">
@@ -658,7 +726,7 @@ footer{
     <div class="contact-links reveal">
       <span class="clink clink-static">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
-        tkoike@chembio.t.u-tokyo.ac.jp
+        tkoike [at] chembio.t.u-tokyo.ac.jp
       </span>
       <a href="https://researchmap.jp/taichi.koike" target="_blank" rel="noopener" class="clink">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M2 20c0-4 4-7 10-7s10 3 10 7"/></svg>
