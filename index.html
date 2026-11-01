@@ -6,32 +6,44 @@
 <title>Taichi Koike — Main Group Element Chemistry</title>
 <style>
 :root {
-  --bg:      #f7f5f0;
-  --bg2:     #eeeae2;
+  --bg:      #f9fbfd;
+  --bg2:     #f5eef2;
   --surf:    #ffffff;
-  --border:  rgba(30,48,80,0.1);
-  --border2: rgba(30,48,80,0.06);
+  --border:  rgba(38,60,92,0.11);
+  --border2: rgba(38,60,92,0.06);
   --text:    #1a2438;
   --muted:   #5c6e84;
   --accent:  #0a6e5c;
   --accent2: #4a3a98;
   --gold:    #7a5f1a;
+  --lobe-b:  #8fc3e0;   /* orbital phase + : pale blue  */
+  --lobe-p:  #eeaec8;   /* orbital phase - : pale pink  */
   --serif:   'Times New Roman', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'MS Mincho', serif;
   --sans:    'Times New Roman', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'MS Mincho', serif;
   --mono:    'Times New Roman', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'MS Mincho', serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+section,[id]{scroll-margin-top:78px}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;line-height:1.65}
 :lang(ja), .jp-text{font-family:'Yu Mincho','YuMincho','Hiragino Mincho ProN','MS Mincho',serif}
 
-/* ── Subtle grid texture ── */
+/* ── Background: p-orbital phases (pale blue + / pale pink −) ── */
+/* soft washes */
 body::before{
   content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(30,48,80,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(30,48,80,.025) 1px,transparent 1px);
-  background-size:40px 40px;
+  background:
+    radial-gradient(56vw 44vw at 8% 2%,   rgba(140,194,226,.26) 0%, transparent 62%),
+    radial-gradient(52vw 42vw at 94% 20%, rgba(238,168,198,.24) 0%, transparent 62%),
+    radial-gradient(60vw 44vw at 26% 74%, rgba(238,168,198,.15) 0%, transparent 64%),
+    radial-gradient(62vw 46vw at 88% 99%, rgba(140,194,226,.20) 0%, transparent 64%);
+}
+/* orbital motif */
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1440'%20height='900'%20viewBox='0%200%201440%20900'%20preserveAspectRatio='xMidYMid%20slice'%3E%3Cg%20transform='translate(1292,212)%20rotate(22)'%3E%3Cpath%20d='M0,0%20C-92,-113%20-79,-244%200,-298%20C79,-244%2092,-113%200,0%20Z'%20fill='%235fa8d3'%20fill-opacity='.15'%20stroke='%235fa8d3'%20stroke-opacity='.30'%20stroke-width='1.4'/%3E%3Cpath%20d='M0,0%20C-92,113%20-79,244%200,298%20C79,244%2092,113%200,0%20Z'%20fill='%23e58cb0'%20fill-opacity='.15'%20stroke='%23e58cb0'%20stroke-opacity='.30'%20stroke-width='1.4'/%3E%3C/g%3E%3Cg%20transform='translate(1168,768)%20rotate(-28)'%3E%3Cpath%20d='M0,0%20C-66,-81%20-56,-175%200,-214%20C56,-175%2066,-81%200,0%20Z'%20fill='%235fa8d3'%20fill-opacity='.13'%20stroke='%235fa8d3'%20stroke-opacity='.26'%20stroke-width='1.4'/%3E%3Cpath%20d='M0,0%20C-66,81%20-56,175%200,214%20C56,175%2066,81%200,0%20Z'%20fill='%23e58cb0'%20fill-opacity='.13'%20stroke='%23e58cb0'%20stroke-opacity='.26'%20stroke-width='1.4'/%3E%3C/g%3E%3Cg%20transform='translate(104,628)%20rotate(36)'%3E%3Cpath%20d='M0,0%20C-76,-94%20-65,-203%200,-248%20C65,-203%2076,-94%200,0%20Z'%20fill='%235fa8d3'%20fill-opacity='.13'%20stroke='%235fa8d3'%20stroke-opacity='.26'%20stroke-width='1.4'/%3E%3Cpath%20d='M0,0%20C-76,94%20-65,203%200,248%20C65,203%2076,94%200,0%20Z'%20fill='%23e58cb0'%20fill-opacity='.13'%20stroke='%23e58cb0'%20stroke-opacity='.26'%20stroke-width='1.4'/%3E%3C/g%3E%3Cg%20transform='translate(626,88)%20rotate(70)'%3E%3Cpath%20d='M0,0%20C-36,-44%20-30,-95%200,-116%20C30,-95%2036,-44%200,0%20Z'%20fill='%235fa8d3'%20fill-opacity='.10'%20stroke='%235fa8d3'%20stroke-opacity='.20'%20stroke-width='1.2'/%3E%3Cpath%20d='M0,0%20C-36,44%20-30,95%200,116%20C30,95%2036,44%200,0%20Z'%20fill='%23e58cb0'%20fill-opacity='.10'%20stroke='%23e58cb0'%20stroke-opacity='.20'%20stroke-width='1.2'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  opacity:.8;
 }
 
 /* ── Nav ── */
@@ -39,7 +51,7 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;justify-content:space-between;align-items:center;
   padding:1.3rem 5vw;
-  background:rgba(247,245,240,0.88);
+  background:rgba(249,251,253,0.86);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
   transition:background .3s;
@@ -82,17 +94,12 @@ h2 em{font-style:italic;color:var(--accent)}
 
 /* ── Hero ── */
 #hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
   padding-top:6rem;padding-left:10vw;padding-right:10vw;
   position:relative;
 }
 /* watermark molecule */
-#hero::after{
-  content:'';position:absolute;right:6vw;top:50%;transform:translateY(-50%);
-  width:340px;height:340px;
-  background:radial-gradient(ellipse at center,rgba(10,110,92,.07) 0%,transparent 70%);
-  border-radius:50%;pointer-events:none;z-index:0;
-}
+#hero::after{content:none}
 .hero-label{
   font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
   color:var(--accent);margin-bottom:1.6rem;
@@ -265,8 +272,21 @@ footer{
   #hero{padding-left:1.2rem;padding-right:1.2rem}
   .cv-grid{grid-template-columns:1fr !important;gap:3rem}
   .pub{grid-template-columns:1fr;gap:.9rem}
-  .pub-toc{max-width:260px}
+  .pub-toc{max-width:320px}
   footer{flex-direction:column;gap:.4rem;text-align:center}
+}
+@media(max-width:560px){
+  /* the TOC graphic is the point — let it use the full column */
+  .pub-toc{max-width:100%}
+  #hero{padding-top:5rem}
+  .hero-name{font-size:clamp(2.9rem,15vw,4rem)}
+  h2{margin-bottom:2rem}
+  section{padding:4rem 1.2rem}
+  .nav-links a{display:block;padding:.45rem 0}   /* taller tap target */
+  .contact-links{gap:.5rem}
+  .clink{padding:.7rem 1rem;font-size:.68rem}
+  .cv-item{gap:.6rem}
+  .cv-item-sub{font-size:.7rem}
 }
 @media(max-width:520px){
   .nav-brand img{height:30px}
@@ -344,18 +364,6 @@ footer{
         <div class="cv-section">
           <div class="cv-head">Positions</div>
           <div class="cv-item">
-            <div><span class="cv-item-main">Assistant Professor</span><span class="cv-item-inst">The University of Tokyo</span></div>
-            <span class="cv-item-sub">2025–</span>
-          </div>
-          <div class="cv-item">
-            <div><span class="cv-item-main">Visiting Researcher</span><span class="cv-item-inst">RIKEN</span></div>
-            <span class="cv-item-sub">2025–</span>
-          </div>
-          <div class="cv-item">
-            <div><span class="cv-item-main">Postdoctoral Fellow (Humboldt)</span><span class="cv-item-inst">TU Dortmund (Prof. M. M. Hansmann)</span></div>
-            <span class="cv-item-sub">2023–25</span>
-          </div>
-          <div class="cv-item">
             <div><span class="cv-item-main">JST PRESTO Researcher</span><span class="cv-item-inst">Japan Science and Technology Agency</span></div>
             <span class="cv-item-sub">2026–</span>
           </div>
@@ -366,6 +374,18 @@ footer{
           <div class="cv-item">
             <div><span class="cv-item-main">JST ACT-X Researcher</span><span class="cv-item-inst">Japan Science and Technology Agency</span></div>
             <span class="cv-item-sub">2025–</span>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-item-main">Visiting Researcher</span><span class="cv-item-inst">RIKEN</span></div>
+            <span class="cv-item-sub">2025–</span>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-item-main">Assistant Professor</span><span class="cv-item-inst">The University of Tokyo</span></div>
+            <span class="cv-item-sub">2025–</span>
+          </div>
+          <div class="cv-item">
+            <div><span class="cv-item-main">Postdoctoral Fellow (Humboldt)</span><span class="cv-item-inst">TU Dortmund (Prof. M. M. Hansmann)</span></div>
+            <span class="cv-item-sub">2023–25</span>
           </div>
           <div class="cv-item">
             <div><span class="cv-item-main">JSPS Research Fellow DC1</span><span class="cv-item-inst">Tohoku University (Prof. T. Iwamoto)</span></div>
@@ -765,8 +785,8 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 const nav = document.querySelector('nav');
 window.addEventListener('scroll',()=>{
   nav.style.background = scrollY>50
-    ? 'rgba(247,245,240,0.97)'
-    : 'rgba(247,245,240,0.88)';
+    ? 'rgba(249,251,253,0.96)'
+    : 'rgba(249,251,253,0.86)';
 });
 </script>
 </body>
